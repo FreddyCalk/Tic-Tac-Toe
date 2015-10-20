@@ -1,0 +1,105 @@
+#game-wrapper{
+	padding:30px;
+	text-align: center;
+	margin: 0px auto;
+
+}
+
+#game-wrapper h1{
+	text-align: center;
+	font-size: 48px;
+	text-transform: uppercase;
+	font-family: sans-serif;
+}
+#playfield{
+	width:650px;
+	height:650px;
+	margin: 50px auto 0px;
+	border: none;
+}
+#playfield .row{
+	display:block;
+	height:31%;
+	width:100%;
+}
+.square{
+	width:33%;
+	height:100%;
+	float:left;
+	cursor:pointer;
+	font-size: 200px;
+	line-height: 100%;
+	margin: auto;
+}
+#play-square-1{
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}
+#play-square-2{
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}
+#play-square-3{
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+}
+#play-square-4{
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}
+#play-square-5{
+	border: 1px solid black;
+}
+#play-square-6{
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+}
+#play-square-7{
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+}
+#play-square-8{
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+}
+#play-square-9{
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+}
+#button{
+	margin:auto;
+	text-align: center;
+}
+#button button{
+	cursor:pointer;
+	font-size:20px;
+	padding:1% 5%;
+	border-radius: 5px;
+	font-family: sans-serif;
+}
+#message{
+	margin: 0px auto auto;
+	text-align:center;
+	font-size:30px;
+	background-color: green;
+	color:white;
+	border-radius: 10px;
+	width:40%;
+	height:10%;
+	font-family: sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+

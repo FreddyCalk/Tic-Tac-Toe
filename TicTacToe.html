@@ -1,0 +1,44 @@
+<!-- add -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Tic Tac Toe Game!</title>
+	<link = rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="styles.css">
+	
+</head>
+
+<body>
+	<div id='game-wrapper'>
+		<h1> Tic Tac Toe </h1>
+		<div id='message'>
+			<div> Make your move to get started! </div>
+		</div>
+		<div id='playfield'>
+			<div id='row-1' class='row'>	
+				<div id='play-square-1' class = 'square' onclick = 'placeChar(1)'></div>
+				<div id='play-square-2' class = 'square' onclick = 'placeChar(2)'></div>
+				<div id='play-square-3' class = 'square' onclick = 'placeChar(3)'></div>
+			</div>
+			<div id='row-2' class = 'row'>
+				<div id='play-square-4' class = 'square' onclick = 'placeChar(4)'></div>
+				<div id='play-square-5' class = 'square' onclick = 'placeChar(5)'></div>
+				<div id='play-square-6' class = 'square' onclick = 'placeChar(6)'></div>
+			</div>
+			<div id='row-3' class='row'>
+				<div id='play-square-7' class = 'square' onclick = 'placeChar(7)'></div>
+				<div id='play-square-8' class = 'square' onclick = 'placeChar(8)'></div>
+				<div id='play-square-9' class = 'square' onclick = 'placeChar(9)'></div>
+			</div>
+		</div>
+
+		<div id = 'button'>
+			<button type = 'submit' onclick = 'newGame()'>Play Again</button>
+		</div>
+
+	</div>
+	<script src="script.js" type="text/javascript" charset="utf-8" async defer></script>
+</body>
+</html>
