@@ -13,8 +13,9 @@ var winners = [
 
 function placeChar(sqr){
 	// places an X in the square that the user selected
-	if($('#play-square-'+sqr).innerHTML === ''){
-		$('#play-square-'+sqr).innerHTML = 'X';
+	var currId = '#play-square-'+sqr;
+	if($(currId).html() === ''){
+		$(currId).html("X");
 	// calls the computer to select where to place an O.
 		turns++;
 		if(turns<9){
@@ -35,8 +36,9 @@ function AI(){
 	// executes a while loop to generate random numbers until an empty square is found on the board.
 	while(placed!==1){
 		var num = Math.floor(Math.random()*8)+1;
-		if($('#play-square-'+num).innerHTML == ''){
-			$('#play-square-'+num).innerHTML = 'O';
+		var currId = "#play-square-"+num;
+		if($(currId).html() === ''){
+			$(currId).html("O");
 			placed = 1;
 			// Adds the square where an "O" was placed to the computer active square array
 			computer.push(num);
@@ -101,25 +103,25 @@ function checkWin(sqrs, isPlayer){
 function endGame(who){
 		if(who === 'player'){
 			message = 'You Win! Play again?';
-			$('#message').innerHTML = message;
+			$('#message').html(message);
 			winCounter++;
 		}else if(who === 'computer'){
 			message = 'You Lose! Play again?';
-			$('#message').innerHTML = message;
+			$('#message').html(message);
 			winCounter--;
 		}else if(turns===9){
 			message = "It's a draw! Play again?";
-			$('#message').innerHTML = message;
+			$('#message').html(message);
 		}
 		$('#button').disabled = false;
-		$('#win-counter').innerHTML = " "+winCounter;	
+		$('#win-counter').html(" "+winCounter);	
 }
 
 function newGame(){
 	turns = 0;
 	won = false;
 	message = "Make a move!";
-	$('#message').innerHTML = "Make your move!";
+	$('#message').html(message);
 	for(i=0;i<9;i++){
 		square[i].innerHTML= '';
 	}
