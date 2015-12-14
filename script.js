@@ -115,7 +115,7 @@ function newGame(){
 	turns = 0;
 	won = false;
 	now = new Date().getTime();
-	then = new Date().getTime()+1001;
+	then = new Date().getTime()+5001;
 	message = "Make a move!";
 	$('#message').html(message);
 	for(i=0;i<9;i++){
@@ -125,7 +125,7 @@ function newGame(){
 	player = [];
 	computer = [];
 	if(games%2===0){
-		AI()
+		setTimeout(AI,1000)
 	}
 	$('#button').disabled = true;
 
