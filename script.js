@@ -29,6 +29,9 @@ function placeChar(sqr){
 		if(!won){
 			checkWin(player,true)	
 		}
+		if((turns == 9)&&(!won)){
+			endGame('draw')
+		}
 		if((turns<9)&&(!won)){
 			setTimeout(AI,1000)
 		}
@@ -100,7 +103,7 @@ function endGame(who){
 			message = 'You Lose! Play again?';
 			$('#message').html(message);
 			winCounter--;
-		}else if(turns===9){
+		}else if(who === 'draw'){
 			message = "It's a draw! Play again?";
 			$('#message').html(message);
 		}
@@ -111,6 +114,8 @@ function endGame(who){
 function newGame(){
 	turns = 0;
 	won = false;
+	now = new Date().getTime();
+	then = new Date().getTime()+1001;
 	message = "Make a move!";
 	$('#message').html(message);
 	for(i=0;i<9;i++){
