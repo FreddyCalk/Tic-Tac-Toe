@@ -29,9 +29,6 @@ function placeChar(sqr){
 		if(!won){
 			checkWin(player,true)	
 		}
-		if((turns == 9)&&(!won)){
-			endGame('draw')
-		}
 		if((turns<9)&&(!won)){
 			setTimeout(AI,1000)
 		}
@@ -90,6 +87,9 @@ function checkWin(sqrs, isPlayer){
 			break;
 		}
 	}
+		if((turns == 9)&&(!won)){
+			endGame('draw');
+		}
 		if(won){
 			endGame(who);
 		}
@@ -115,7 +115,6 @@ function newGame(){
 	turns = 0;
 	won = false;
 	now = new Date().getTime();
-	then = new Date().getTime()+5001;
 	message = "Make a move!";
 	$('#message').html(message);
 	for(i=0;i<9;i++){
@@ -126,6 +125,8 @@ function newGame(){
 	computer = [];
 	if(games%2===0){
 		setTimeout(AI,1000)
+	}else{
+		then = new Date().getTime()+1000;
 	}
 	$('#button').disabled = true;
 
