@@ -4,6 +4,9 @@ var games = 1;
 var player= [];
 var computer = [];
 var winCounter = 0;
+var interval = 0;
+var now = new Date().getTime();
+var then = new Date().getTime()+1001;
 var won = false;
 var message = 'Make a move!';
 var winners = [
@@ -14,20 +17,31 @@ var winners = [
 function placeChar(sqr){
 	// places an X in the square that the user selected
 	var currId = '#play-square-'+sqr;
-	if($(currId).html() === ''){
+	interval = then-now;
+	now = new Date().getTime();
+	
+	console.log(interval)
+	if(($(currId).html() === '')&&(!won)&&(interval >= 1000)){
 		$(currId).html("X");
 	// calls the computer to select where to place an O.
 		turns++;
-		if(turns<9){
-			AI();
-		}
 		player.push(sqr);
+		if(!won){
+			checkWin(player,true)	
+		}
+		if((turns<9)&&(!won)){
+			setTimeout(AI,1000)
+		}
+		
+	}else if(interval < 1000){
+		alert("You must let the computer make a move")
+	}else if(won){
+		alert("You must Start a new game")
 	}else{
 		alert("You must select an empty square!")
 	}
-	if(!won){
-	checkWin(player,true)	
-	}
+	
+	
 }
 function AI(){
 	// initializes a variable to terminate the loop when the computer makes a move
@@ -44,38 +58,13 @@ function AI(){
 			computer.push(num);
 			turns++;
 			if(!won){
-			checkWin(computer,false);
-			
+				checkWin(computer,false);
 			}
 		}
 	}
-	// beatUser()
-	// blockUser()
+	then = new Date().getTime();
 }
 
-
-// function blockUser(){
-// 	var thisWin = [];
-// 	var rowCount = 0;
-// 	var matches = [];
-// 	for(i=0;i<winners.length;i++){
-// 		rowCount = 0;
-// 		thisWin = winners[i];
-
-// 		for(j=thisWin.length;j>=0;j--){
-// 			if(player.indexOf(thisWin[j])>==0){
-// 				rowCount++;
-// 				console.log(rowCount)
-// 			}
-// 			if(rowCount === 2){
-// 				console.log(i);
-				
-// 			}
-// 		}
-// 	}
-
-
-// }
 function checkWin(sqrs, isPlayer){
 	var thisWin=[];
 	var rowCount = 0;
@@ -91,9 +80,11 @@ function checkWin(sqrs, isPlayer){
 		if((rowCount === 3) && (isPlayer)){
 			won = true;
 			who = 'player';
+			break;
 		}else if((rowCount === 3)&&(!isPlayer)){
 			won = true;
 			who = 'computer'
+			break;
 		}
 	}
 		if(won){
